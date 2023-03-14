@@ -1,0 +1,16 @@
+{
+    "links": [
+        {
+            "label": "Home",
+            "href": "/HomehomePage"
+        },
+        {
+            "label": "About",
+            "href": "/about"
+        },
+        {
+            "label": "Contact",
+            "href": "/contact"
+        }
+    ]
+}
