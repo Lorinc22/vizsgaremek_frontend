@@ -72,8 +72,8 @@ class Register extends Component<{}, State>{
               <label className='custom-label'> Jelszó ismét</label>
             </div>
             <div className='div-button'>
-            <Link aria-current="page" to="/HomehomePage" style={{textDecoration:'none'}} onClick={this.handleRegister} ><button className='button1'  >Regisztráció</button></Link> 
-            <img className='gorillagoicon' src={Kep} />
+            <Link aria-current="page" to="/login" style={{textDecoration:'none'}} onClick={this.handleRegister} ><button className='button1'  >Regisztráció</button></Link> 
+            
             </div>
           </div>        
   }

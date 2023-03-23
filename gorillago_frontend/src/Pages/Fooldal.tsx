@@ -12,8 +12,9 @@ const Home : React.FunctionComponent<HomeSite> = (props) =>{
       <div id='input' className='container'>
           <div className='div-button'>
           <img className='gorillagoicon' src={Kep} />
-          <Link aria-current="page" to="/Register" style={{textDecoration:'none'}} ><button className='button1'  >Regisztráció</button></Link> 
+          <Link aria-current="page" to="/Register" style={{textDecoration:'none'}}  ><button className='button1'  >Regisztráció</button></Link> 
           <Link aria-current="page" to="/Login" style={{textDecoration:'none'}}><button className='button1'  > Bejelentkezés</button></Link>
+          
           </div>
         </div>    
     );

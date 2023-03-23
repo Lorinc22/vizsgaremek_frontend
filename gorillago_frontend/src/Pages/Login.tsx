@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom'
 import '../App.css';
+import RedirectButton from '../components/RedirectButton/RedirectButton';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Kep from '../images/gorillagoicon.png'
+
+import  { Toaster } from 'react-hot-toast';
+
 
 export interface LoginSite {};
+
 
 const Login : React.FunctionComponent<LoginSite> = props =>{
     return(
@@ -22,8 +24,9 @@ const Login : React.FunctionComponent<LoginSite> = props =>{
           </div>
          
           <div className='div-button'>
-          <button className='button1' >Bejelentkezés</button>
-          <img className='gorillagoicon' src={Kep} />
+         <RedirectButton link="http://localhost:3000/HomehomePage"/>
+         <Toaster  />
+          
           </div>
         </div>       
     );

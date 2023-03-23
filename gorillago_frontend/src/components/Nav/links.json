@@ -9,8 +9,8 @@
             "href": "/about"
         },
         {
-            "label": "Contact",
-            "href": "/contact"
+            "png":"carticon.png",
+            "href": "/cart"
         }
     ]
 }
