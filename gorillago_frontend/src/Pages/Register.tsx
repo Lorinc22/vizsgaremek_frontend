@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom'
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Kep from '../images/gorillagoicon.png'
+import {Link } from 'react-router-dom';
 
 interface State {
 
@@ -73,7 +72,7 @@ class Register extends Component<{}, State>{
               <label className='custom-label'> Jelszó ismét</label>
             </div>
             <div className='div-button'>
-            <button className='button1'  onClick={this.handleRegister}>Regisztráció</button>
+            <Link aria-current="page" to="/HomehomePage" style={{textDecoration:'none'}} onClick={this.handleRegister} ><button className='button1'  >Regisztráció</button></Link> 
             <img className='gorillagoicon' src={Kep} />
             </div>
           </div>        
