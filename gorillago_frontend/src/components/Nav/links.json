@@ -5,12 +5,8 @@
             "href": "/HomehomePage"
         },
         {
-            "label": "About",
-            "href": "/about"
-        },
-        {
-            "png":"carticon.png",
-            "href": "/cart"
+            "label":"Fiókom",
+            "href": "/Account"
         }
     ]
 }

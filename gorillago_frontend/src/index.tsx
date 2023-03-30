@@ -7,6 +7,7 @@ import Login from './Pages/Login';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Register from './Pages/Register';
 import { useState } from 'react';
+import Account from './Pages/Fiok';
 
 export default function App() {
   const [ token, setToken ] = useState('');
@@ -20,6 +21,7 @@ export default function App() {
           <Route path='logout' element={<Layout/>}/>
           <Route path='login' element={<Login/>}/>
           <Route path='HomehomePage' element={<HomehomePage/>}/>
+          <Route path='Account' element={<Account/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

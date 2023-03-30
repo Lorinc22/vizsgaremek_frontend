@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Kep from '../images/gorillagoicon.png'
-import {Link } from 'react-router-dom';
+import RedirectButton2 from '../components/RedirectButton/RedirectButton2';
+import  { Toaster } from 'react-hot-toast';
 
 interface State {
 
@@ -37,7 +37,7 @@ class Register extends Component<{}, State>{
       rePassword: rePassword
     }
 
-    let response = await fetch('http://localhost:3000/register', {
+    let response = await fetch('http://localhost:3001/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -59,21 +59,17 @@ class Register extends Component<{}, State>{
     return <div id='input' className='container'>
       
         <h3 className='ont-weight-bold text-center text-uppercase text-white my-4'>Regisztráció</h3>
-          <div >
-              <input  type="text" value={this.state.email} onChange={e => this.setState({ email: e.currentTarget.value})} id="form1Example2" className='form-control' />
-              <label className='custom-label'>E-mail</label>
-            </div>
-            <div >
-              <input type="password" value={this.state.password} onChange={e => this.setState({ password: e.currentTarget.value})} id="form1Example3" className='form-control' />
-              <label className='custom-label'>Jelszó</label>
-            </div>
-            <div >
-              <input type="password"  value={this.state.rePassword} onChange={e => this.setState({ rePassword: e.currentTarget.value})} id="form1Example4" className='form-control' />
-              <label className='custom-label'> Jelszó ismét</label>
-            </div>
+        <div className="form__group">
+               <input type="text" className="form__input" id="name" placeholder="Email" value={this.state.email} onChange={e => this.setState({ email: e.currentTarget.value})} />
+             <label  className="form__label"> Email</label>
+             <input type="password" className="form__input" id="name" placeholder="Jelszó"  value={this.state.password} onChange={e => this.setState({ password: e.currentTarget.value})}/>
+             <label  className="form__label"> Jelszó</label>
+             <input type="password" className="form__input" id="name" placeholder="jelszó ujra" value={this.state.rePassword} onChange={e => this.setState({ rePassword: e.currentTarget.value})} />
+             <label  className="form__label"> jelszó ujra</label>
+          </div>
             <div className='div-button'>
-            <Link aria-current="page" to="/login" style={{textDecoration:'none'}} onClick={this.handleRegister} ><button className='button1'  >Regisztráció</button></Link> 
-            
+            <RedirectButton2  link="/login"/>
+            <Toaster  />
             </div>
           </div>        
   }

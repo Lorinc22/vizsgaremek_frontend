@@ -10,6 +10,21 @@ div{
 h4{
   color: aliceblue;
 }
+h3{
+  color: white;
+  padding: 10px;
+}
+.hr{
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 5px solid #3c1945;
+  border-radius: 2px;
+  width: 100%;
+  margin: 1em 0;
+  padding: 0;
+
+}
 .NavbarLogo{
   width: 10%;
   margin-top: 1%;
@@ -25,7 +40,18 @@ h4{
 #input{
   width: 30%;
   border-radius: 10px;
+  margin: auto;
+  transform: translateY(50%);
 }
+
+#AccountInput{
+  width: 30%;
+  border-radius: 10px;
+ 
+  
+}
+
+
 /* Footer Design */
 .footer{
   position: fixed;
@@ -51,10 +77,10 @@ h4{
 }
 /* Button Customization */
 .button1 {
-  
+  border: 2px solid #3c1945;
   background: transparent;
   color: white;
-  border-color: white;
+  border-color: #3c1945;
   border-radius: 10px;
   font-size: 16px;
   padding: 10px 20px;
@@ -62,6 +88,22 @@ h4{
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
 }
+
+.button2 {
+  position: relative;
+  border: 2px solid #3c1945;
+  background: transparent;
+  color: white;
+  border-color: #3c1945;
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  float: right;
+}
+
 .div-button{
   align-content: center;
   text-align: center;
@@ -127,9 +169,55 @@ height: 110px;
     transform: translateX(calc(-240 * 5));
   }
 }
+/* Input Design */
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  font-size: 62,5%;
+  border: 100px;
+}
 
+.form__label {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  margin-left: 2rem;
+  margin-top: 0.7rem;
+  display: block;
+  transition: all 0.3s;
+  transform: translateY(0rem);
+  color: white;
+}
 
+.form__input {
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-size: 1.2rem;
+	margin: 0 auto;
+  padding: 1.5rem 2rem;
+  border-radius: 20px;
+  height: 30px;
+  width: 90%;
+  display: block;
+  border-bottom: 0.3rem solid transparent;
+  transition: all 0.3s;
+  background-color: #3c1945;
+  
+}
 
-
-
+.form__input:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(-4rem);
+  transform: translateY(-4rem);
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px #3c1945 inset !important;
+}
+input:-webkit-autofill{
+  -webkit-text-fill-color: white !important;
+}
 
