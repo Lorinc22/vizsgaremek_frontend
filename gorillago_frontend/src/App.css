@@ -31,13 +31,14 @@ h3{
 }
 
 .gorillagoicon{
- 
-  width: 80%;
+  text-align: center;
+  width: 350px;
   margin-top: 20px;
   margin-bottom: 10px;
   
 }
 #input{
+  text-align: center;
   width: 30%;
   border-radius: 10px;
   margin: auto;
@@ -50,7 +51,45 @@ h3{
  
   
 }
+/* Card Design */
 
+.container2{
+  text-align: center;
+  display: flex;
+  margin: 50px;
+  
+}
+
+.card{
+  background-color: red;
+  border-radius: 30px;
+  flex: 4;
+  transition: 0.3s;
+  margin: 0 10px;
+}
+
+.card:hover{
+  border-radius: 30px;
+  flex: 5;
+}
+
+.pizzaKingImg{
+  width: 100%;
+  height: 100%;
+  object-position: center;
+
+}
+
+.button3{
+  background-color: #3c1945;
+  color: white;
+  border-radius: 30px;
+  border: 1px solid white;
+}
+
+#restaurantName{
+  color: white;
+}
 
 /* Footer Design */
 .footer{
@@ -68,15 +107,9 @@ h3{
   
 }
 
-/* Card Customization */
-.custom-label {
-  display: inline-block;
-  width: 50%;
-  color: white;
-  justify-content: center;
-}
 /* Button Customization */
 .button1 {
+  text-align: center;
   border: 2px solid #3c1945;
   background: transparent;
   color: white;
@@ -109,66 +142,6 @@ h3{
   text-align: center;
 }
 
-/* Slider Customization */
-.slider{
-  display: flex;
-  height: auto;
-  margin: auto;
-  overflow: hidden;
-  align-items: center;
-}
-
-.slider:before{
-  position: absolute;
-  z-index: 1;
-  left: 0;
-  content: '';
-  width: 23.958%;
-  height: 110px;
-
-}
-.slider:after{
-position: absolute;
-right: 0;
-content: '';
-width: 23.958%;
-height: 110px;
-
-}
-
-.slider .slide-track{
-  display: flex;
-  animation:  scroll 35s linear infinite;
-  -webkit-animation: scroll 35s linear infinite;
-  width: calc(240px * 10);
-}
-.slider .slide{
-  display: flex;
-}
-
-.slider .slide img{
-  width: 180px;
-  height: 80px;
-  padding: 10px;
-  background-color: #3c1945;
-  cursor: pointer;
-  margin: 20px;
-  border-radius: 8px;
-  box-shadow: rgba(50, 50, 93 ,0.25)0px 2px 5px -1px,
-  rgba(0, 0, 0 ,0.3)0px 1px 3px -1px;
-}
-
-@keyframes scroll{
-  0%{
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
-
-  100%{
-    -webkit-transform: translateX(calc(-240 * 5));
-    transform: translateX(calc(-240 * 5));
-  }
-}
 /* Input Design */
 *,
 *::after,
@@ -180,6 +153,7 @@ height: 110px;
 
 .form__label {
   font-family: 'Roboto', sans-serif;
+  width: 30%;
   font-size: 1.2rem;
   margin-left: 2rem;
   margin-top: 0.7rem;
@@ -197,7 +171,7 @@ height: 110px;
   padding: 1.5rem 2rem;
   border-radius: 20px;
   height: 30px;
-  width: 90%;
+  width:80%;
   display: block;
   border-bottom: 0.3rem solid transparent;
   transition: all 0.3s;
@@ -220,4 +194,6 @@ input:-webkit-autofill:active{
 input:-webkit-autofill{
   -webkit-text-fill-color: white !important;
 }
+
+
 

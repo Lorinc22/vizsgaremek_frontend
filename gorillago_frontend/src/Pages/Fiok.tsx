@@ -7,12 +7,16 @@ import Kep2 from '../images/gorillagoicon.png'
 
 export interface AccountSite {};
 
+
+
 const Account : React.FunctionComponent<AccountSite> = (props) =>{
+
+  
+
     return(
       <div >
         <>
         <Nav/>
-       
         <div id='AccountInput' className='container'>
         <h3>Fiók Adatok:</h3>
         <hr className='hr'/>

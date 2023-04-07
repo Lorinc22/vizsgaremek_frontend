@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom'
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Kep2 from '../images/gorillagoicon.png'
+import Pizzaking from '../images/pizzaking.png'
 import Nav from '../components/Nav/Nav';
 
 interface State {
 
   id:string;
   name: string[];
+  
 
 }
 
@@ -57,12 +59,102 @@ class HomehomePage extends Component<{}, State>{
       <div>
        <>
        <Nav />
-       <div>
-        {
-          this.state.name.map(restaurant => <p>{restaurant}</p>)
-        }
+       <div className='container2'>
+       <h3 >Ajánlataink:</h3>
+        <div className='card' style={{ backgroundColor: '#3c1945' }}> 
+          <img className='pizzaKingImg'  src={Pizzaking} /><h4 id='restaurantName'>PizzaKing</h4>
+            <button className='button3'>Rendelés</button>
+        </div>
+        <div className='card' style={{ backgroundColor: '#3c1945' }}> 
+          <img className='pizzaKingImg'  src={Pizzaking} /><h4 id='restaurantName'>PizzaKing</h4>
+            <button className='button3'>Rendelés</button>
+        </div>
+        <div className='card' style={{ backgroundColor: '#3c1945' }}> 
+          <img className='pizzaKingImg'  src={Pizzaking} /><h4 id='restaurantName'>PizzaKing</h4>
+            <button className='button3'>Rendelés</button>
+        </div>
+        <div className='card' style={{ backgroundColor: '#3c1945' }}> 
+          <img className='pizzaKingImg'  src={Pizzaking} /><h4 id='restaurantName'>PizzaKing</h4>
+            <button className='button3'>Rendelés</button>
+        </div>
+        <div className='card' style={{ backgroundColor: '#3c1945' }}> 
+          <img className='pizzaKingImg'  src={Pizzaking} /><h4 id='restaurantName'>PizzaKing</h4>
+            <button className='button3'>Rendelés</button>
+        </div>
+
        </div>
-       <button onClick={this.loadRestaurants}>Load restaurants</button>
+       <div className='container2'>
+       <h3 >Ajánlataink:</h3>
+        <div className='card' style={{ backgroundColor: '#3c1945' }}> 
+          <img className='pizzaKingImg'  src={Pizzaking} /><h4 id='restaurantName'>PizzaKing</h4>
+            <button className='button3'>Rendelés</button>
+        </div>
+        <div className='card' style={{ backgroundColor: '#3c1945' }}> 
+          <img className='pizzaKingImg'  src={Pizzaking} /><h4 id='restaurantName'>PizzaKing</h4>
+            <button className='button3'>Rendelés</button>
+        </div>
+        <div className='card' style={{ backgroundColor: '#3c1945' }}> 
+          <img className='pizzaKingImg'  src={Pizzaking} /><h4 id='restaurantName'>PizzaKing</h4>
+            <button className='button3'>Rendelés</button>
+        </div>
+        <div className='card' style={{ backgroundColor: '#3c1945' }}> 
+          <img className='pizzaKingImg'  src={Pizzaking} /><h4 id='restaurantName'>PizzaKing</h4>
+            <button className='button3'>Rendelés</button>
+        </div>
+        <div className='card' style={{ backgroundColor: '#3c1945' }}> 
+          <img className='pizzaKingImg'  src={Pizzaking} /><h4 id='restaurantName'>PizzaKing</h4>
+            <button className='button3'>Rendelés</button>
+        </div>
+       </div>
+       
+       <div className='container2'>
+       <h3 >Ajánlataink:</h3>
+        <div className='card' style={{ backgroundColor: '#3c1945' }}> 
+          <img className='pizzaKingImg'  src={Pizzaking} /><h4 id='restaurantName'>PizzaKing</h4>
+            <button className='button3'>Rendelés</button>
+        </div>
+        <div className='card' style={{ backgroundColor: '#3c1945' }}> 
+          <img className='pizzaKingImg'  src={Pizzaking} /><h4 id='restaurantName'>PizzaKing</h4>
+            <button className='button3'>Rendelés</button>
+        </div>
+        <div className='card' style={{ backgroundColor: '#3c1945' }}> 
+          <img className='pizzaKingImg'  src={Pizzaking} /><h4 id='restaurantName'>PizzaKing</h4>
+            <button className='button3'>Rendelés</button>
+        </div>
+        <div className='card' style={{ backgroundColor: '#3c1945' }}> 
+          <img className='pizzaKingImg'  src={Pizzaking} /><h4 id='restaurantName'>PizzaKing</h4>
+            <button className='button3'>Rendelés</button>
+        </div>
+        <div className='card' style={{ backgroundColor: '#3c1945' }}> 
+          <img className='pizzaKingImg'  src={Pizzaking} /><h4 id='restaurantName'>PizzaKing</h4>
+            <button className='button3'>Rendelés</button>
+        </div>
+       </div>
+       
+       <div className='container2'>
+       <h3 >Ajánlataink:</h3>
+        <div className='card' style={{ backgroundColor: '#3c1945' }}> 
+          <img className='pizzaKingImg'  src={Pizzaking} /><h4 id='restaurantName'>PizzaKing</h4>
+            <button className='button3'>Rendelés</button>
+        </div>
+        <div className='card' style={{ backgroundColor: '#3c1945' }}> 
+          <img className='pizzaKingImg'  src={Pizzaking} /><h4 id='restaurantName'>PizzaKing</h4>
+            <button className='button3'>Rendelés</button>
+        </div>
+        <div className='card' style={{ backgroundColor: '#3c1945' }}> 
+          <img className='pizzaKingImg'  src={Pizzaking} /><h4 id='restaurantName'>PizzaKing</h4>
+            <button className='button3'>Rendelés</button>
+        </div>
+        <div className='card' style={{ backgroundColor: '#3c1945' }}> 
+          <img className='pizzaKingImg'  src={Pizzaking} /><h4 id='restaurantName'>PizzaKing</h4>
+            <button className='button3'>Rendelés</button>
+        </div>
+        <div className='card' style={{ backgroundColor: '#3c1945' }}> 
+          <img className='pizzaKingImg'  src={Pizzaking} /><h4 id='restaurantName'>PizzaKing</h4>
+            <button className='button3'>Rendelés</button>
+        </div>
+       </div>
+
        <footer className='footer'>
        <img className='gorillagoiconfooter' src={Kep2} />
        </footer>

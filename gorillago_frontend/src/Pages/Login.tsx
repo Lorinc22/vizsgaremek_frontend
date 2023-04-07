@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import '../App.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -7,25 +8,46 @@ import  { Toaster } from 'react-hot-toast';
 
 export interface LoginSite {};
 
+interface User {
+  email: string;
+  password: string;
+}
 
-const Login : React.FunctionComponent<LoginSite> = props =>{
-    return(
-      <div id='input' className='container'>
-      <h3 className='ont-weight-bold text-center text-uppercase text-white my-4'>Bejelentkezés</h3>
-      <div className="form__group">
-               <input type="text" className="form__input" id="name" placeholder="Email"  />
-             <label  className="form__label"> Email</label>
-          </div>
-          <div className="form__group">
-               <input type="password" className="form__input" id="name" placeholder="Password"  />
-             <label  className="form__label"> Password</label>
-          </div>
-          <div className='div-button'>
-        
-         <Toaster  />
-          </div>
-        </div>       
-    );
+function Login() {
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+
+  const handleLogin = async () => {
+    try {
+      const user: User = { email, password };
+      const response = await axios.post('http://localhost:3000/login', user);
+      console.log(response.data);  
+
+    } catch (error) {
+      console.error(error);
+      
+    }
   };
-  
+
+  return(
+    <div id='input' className='container'>
+    <h3 className='ont-weight-bold text-center text-uppercase text-white my-4'>Bejelentkezés</h3>
+    <div className="form__group">
+             <input type="text" className="form__input"  placeholder="Email" id="username"  value={email} onChange={(e) => setEmail(e.target.value)} />
+           <label  className="form__label"> Email</label>
+        </div>
+        <div className="form__group">
+             <input type="password" className="form__input" id="name" placeholder="Password"  value={password} onChange={(e) => setPassword(e.target.value)} />
+           <label  className="form__label"> Password</label>
+        </div>
+        <div className='div-button'>
+        <button className='button1' onClick={handleLogin} >Bejelentkezés</button>
+      
+       <Toaster  />
+        </div>
+      </div>       
+  );
+}
+
+
 export default Login;
