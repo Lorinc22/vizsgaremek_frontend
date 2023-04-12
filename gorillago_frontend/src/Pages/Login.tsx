@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../App.css';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
-import  { Toaster } from 'react-hot-toast';
+import withRouter from '../components/withRouter'
+import { useNavigate } from 'react-router-dom';
+
 
 
 export interface LoginSite {};
@@ -16,17 +17,20 @@ interface User {
 function Login() {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const navigate = useNavigate()
 
   const handleLogin = async () => {
     try {
       const user: User = { email, password };
       const response = await axios.post('http://localhost:3000/login', user);
-      console.log(response.data);  
-
+      console.log(response.data); 
+      navigate('/HomehomePage') 
     } catch (error) {
       console.error(error);
       
+      
     }
+    
   };
 
   return(
@@ -42,8 +46,6 @@ function Login() {
         </div>
         <div className='div-button'>
         <button className='button1' onClick={handleLogin} >Bejelentkezés</button>
-      
-       <Toaster  />
         </div>
       </div>       
   );

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import withRouter from '../components/withRouter'
 
 import  { Toaster } from 'react-hot-toast';
+import { NavigateFunction } from 'react-router-dom';
 
 interface State {
 
@@ -11,9 +13,13 @@ interface State {
   rePassword: string;
 }
 
-class Register extends Component<{}, State>{
+interface Props {
+  navigate:NavigateFunction
+}
 
-  constructor(props: {}){
+class Register extends Component<Props, State>{
+
+  constructor(props: Props){
     super(props);
 
     this.state = {
@@ -52,6 +58,7 @@ class Register extends Component<{}, State>{
     })
 
     console.log(adat);
+    this.props.navigate('/login')
 
   };
 
@@ -75,4 +82,4 @@ class Register extends Component<{}, State>{
   }
 }
 
-export default Register;
+export default withRouter(Register);

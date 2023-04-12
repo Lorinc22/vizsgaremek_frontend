@@ -9,8 +9,23 @@ import Register from './Pages/Register';
 import { useState } from 'react';
 import Account from './Pages/Fiok';
 
-export default function App() {
-  const [ token, setToken ] = useState('');
+
+
+  interface AccountData {
+    email: string;
+    firstName: string;
+    lastName: string;
+    phoneNumber: string;
+  }
+
+  function App() {
+    const [accountData, setAccountData] = useState<AccountData>({
+      email: '',
+      firstName: '',
+      lastName: '',
+      phoneNumber: ''
+    });
+    
 
   return (
     <BrowserRouter>
@@ -21,7 +36,7 @@ export default function App() {
           <Route path='logout' element={<Layout/>}/>
           <Route path='login' element={<Login/>}/>
           <Route path='HomehomePage' element={<HomehomePage/>}/>
-          <Route path='Account' element={<Account/>}/>
+          <Route path='Account' element={<Account accountData={accountData} setAccountData={setAccountData}/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
