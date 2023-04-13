@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Kep2 from '../images/gorillagoicon.png'
 import Pizzaking from '../images/pizzaking.png'
 import Nav from '../components/Nav/Nav';
+import SearchBar from '../components/SearchBar/SearchBar';
 
 interface State {
 
@@ -59,6 +60,7 @@ class HomehomePage extends Component<{}, State>{
       <div>
        <>
        <Nav />
+       <SearchBar />
        <div className='container2'>
        <h3 >Ajánlataink:</h3>
         <div className='card' style={{ backgroundColor: '#3c1945' }}> 

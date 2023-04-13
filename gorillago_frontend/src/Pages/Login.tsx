@@ -17,6 +17,7 @@ interface User {
 function Login() {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [Errormessage, setErrormessage] = useState<string>('');
   const navigate = useNavigate()
 
   const handleLogin = async () => {
@@ -27,7 +28,7 @@ function Login() {
       navigate('/HomehomePage') 
     } catch (error) {
       console.error(error);
-      
+      setErrormessage('Invalid email or password')
       
     }
     
@@ -46,6 +47,7 @@ function Login() {
         </div>
         <div className='div-button'>
         <button className='button1' onClick={handleLogin} >Bejelentkezés</button>
+        <p className='ErrorMessage'> {Errormessage}</p>
         </div>
       </div>       
   );

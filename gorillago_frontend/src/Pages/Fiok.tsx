@@ -20,7 +20,7 @@ interface SaveAccountDataParams {
 
 const saveAccountData = async (data: SaveAccountDataParams): Promise<boolean> => {
   try {
-    const response = await fetch('http://localhost:3000/account', {
+    const response = await fetch('http://localhost:3000/users/1', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
