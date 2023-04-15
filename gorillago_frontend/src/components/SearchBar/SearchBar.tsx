@@ -18,6 +18,7 @@ const SearchBar = () => {
 
   return (
     <div>
+    <div className={styles["searchBarContainer"]}>
       <input
       className={styles["form__input"]}
         type="text"
@@ -25,13 +26,15 @@ const SearchBar = () => {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <button onClick={handleSearch}>Search</button>
-      <ul>
-        {restaurants.map((restaurant) => (
-          <li className={styles['searchBarLi']} key={restaurant.id}>{restaurant.name}</li>
-        ))}
-      </ul>
+      <button className={styles["searchBarButton"]} onClick={handleSearch}>Search</button>
+      
     </div>
+    <ul>
+    {restaurants.map((restaurant) => (
+      <li className={styles['searchBarLi']} key={restaurant.id}>{restaurant.name}</li>
+    ))}
+  </ul>
+  </div>
   );
 };
 
