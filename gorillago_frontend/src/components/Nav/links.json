@@ -1,12 +1,12 @@
 {
-    "links": [
-        {
-            "label": "Home",
-            "href": "/HomehomePage"
-        },
-        {
-            "label":"Fiókom",
-            "href": "/Account"
-        }
-    ]
+  "links": [
+    {
+      "label": "Home",
+      "href": "/HomehomePage"
+    },
+    {
+      "label": "Fiókom",
+      "href": "/Account"
+    }
+  ]
 }
