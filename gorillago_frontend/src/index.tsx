@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Register from "./Pages/Register";
 import { useState } from "react";
 import Account from "./Pages/Fiok";
-import PizzaKing from "./RestaurantSites/PizzaKing";
+import RestaurantPage from "./components/RestaurantPage";
 
 interface AccountData {
   email: string;
@@ -34,7 +34,7 @@ function App() {
           <Route path="logout" element={<Layout />} />
           <Route path="login" element={<Login />} />
           <Route path="HomehomePage" element={<HomehomePage />} />
-          <Route path="pizzaking" element={<PizzaKing/>}/>
+          <Route  path="/restaurant/:id" Component={RestaurantPage} />
           <Route
             path="Account"
             element={
