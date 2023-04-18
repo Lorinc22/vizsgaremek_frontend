@@ -15,6 +15,7 @@ interface MenuItem {
   name: string;
   description: string;
   price: number;
+  url:string;
 }
 
 function RestaurantPage() {
@@ -56,6 +57,7 @@ function RestaurantPage() {
         name={menu.name}
         description={menu.description}
         price={menu.price}
+        url={menu.url}
       />
     </div>
   ))}
