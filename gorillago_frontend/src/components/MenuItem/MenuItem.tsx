@@ -10,9 +10,13 @@ interface MenuItemProps {
   url:string;
 }
 
+
+
 const MenuItem: React.FC<MenuItemProps> = ({ id, name, description, price, url }) => {
   const [quantity, setQuantity] = useState(1);
   const [, setUrl] = useState('');
+  
+  
 
   useEffect(() => {
     axios.get(`http://localhost:3000/menu/${id}`)

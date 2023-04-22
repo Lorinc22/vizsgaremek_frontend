@@ -3,6 +3,7 @@ import Kep from "../Nav/NavbarLogo.png";
 import styles from "./Nav.module.css";
 import * as data from "./links.json";
 import LogoutButton from "../LogoutBtn";
+
 const linksString = JSON.stringify(data);
 const links = JSON.parse(linksString).links;
 
@@ -29,10 +30,12 @@ const Nav: React.FC<{}> = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles["logo-container"]}>
-        <img className="NavbarLogo" src={Kep} />
+        <a href="/Homehomepage"><img className="NavbarLogo" src={Kep} /></a>
       </div>
-      <Links links={links} />
+      <div>
+        <a href="/Account"><button className="button1">Account</button></a>
       <LogoutButton />
+      </div>
     </nav>
   );
 };

@@ -34,3 +34,16 @@
   text-decoration: none;
   color: rgba(14, 34, 14, 0.8);
 }
+.button1 {
+  text-align: center;
+  border: 2px solid #3c1945;
+  background: transparent;
+  color: white;
+  border-color: #3c1945;
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
