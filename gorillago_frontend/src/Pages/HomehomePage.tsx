@@ -94,7 +94,7 @@
           <>
             <Nav />
             <SearchBar />
-            <h4>Ajánlataink:</h4>
+            
             <div className="flex-center">
               <div className="scrollbarContainer">
                 {this.state.loadedRestauratsHTML1}

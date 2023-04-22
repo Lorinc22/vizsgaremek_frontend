@@ -3,6 +3,7 @@ import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Nav from "../components/Nav/Nav";
 import Kep2 from "../images/gorillagoicon.png";
+import axios from 'axios';
 
 interface ChangePasswordParams {
   oldPassword: string;
@@ -22,6 +23,8 @@ interface SaveAccountDataParams {
   lastName: string;
   phoneNumber: string;
 }
+
+
 
 const changePassword = async (
   id: number,
@@ -54,6 +57,7 @@ interface AccountProps {
 }
 
 const Account: React.FunctionComponent<AccountProps> = (props) => {
+  
   const [email, setEmail] = useState<string>(props.accountData.email);
   const [firstName, setFirstName] = useState<string>(
     props.accountData.firstName
@@ -89,6 +93,8 @@ const Account: React.FunctionComponent<AccountProps> = (props) => {
     setNewPassword(e.target.value);
   };
 
+  
+
   const handleAccountSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const data = { email, firstName, lastName, phoneNumber };
@@ -106,6 +112,10 @@ const Account: React.FunctionComponent<AccountProps> = (props) => {
       alert("Error saving account data, please try again.");
     }
   };
+
+  
+  
+  
 
   const handlePasswordSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -136,6 +146,7 @@ const Account: React.FunctionComponent<AccountProps> = (props) => {
                 </h4>
                 <form onSubmit={handleAccountSubmit}>
                   <div className="form-group">
+                    
                     <label style={{ color: "white" }}>Email</label>
                     <input
                       type="email"

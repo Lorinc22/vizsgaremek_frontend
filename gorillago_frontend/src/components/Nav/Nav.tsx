@@ -2,6 +2,7 @@ import React from "react";
 import Kep from "../Nav/NavbarLogo.png";
 import styles from "./Nav.module.css";
 import * as data from "./links.json";
+import LogoutButton from "../LogoutBtn";
 const linksString = JSON.stringify(data);
 const links = JSON.parse(linksString).links;
 
@@ -31,6 +32,7 @@ const Nav: React.FC<{}> = () => {
         <img className="NavbarLogo" src={Kep} />
       </div>
       <Links links={links} />
+      <LogoutButton />
     </nav>
   );
 };

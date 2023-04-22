@@ -1,0 +1,25 @@
+.MenuItemCard{
+    height: 250px;
+    width: 500px;
+    padding: 10px;
+    background-color: #3c1945;
+    border: 2px solid white;
+    border-radius: 30px;
+}
+.MenuItemTitle{
+    text-align: center;
+    color: white;
+}
+.MenuItemText{
+    color: white;
+    
+}
+.MenuItemImg{
+    width: 100px;
+}
+.MenuItemButton{
+    background-color: #3c1945;
+    color: white;
+    border-radius: 10px;
+    border: 1px solid white;   
+}

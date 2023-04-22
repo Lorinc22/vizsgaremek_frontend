@@ -5,6 +5,8 @@ import axios from "axios";
 interface Restaurant {
   id: number;
   name: string;
+  url: string;
+  description: string;
 }
 
 const SearchBar = () => {
@@ -16,6 +18,10 @@ const SearchBar = () => {
       "http://localhost:3000/restaurants/" + searchTerm
     );
     setRestaurants(response.data);
+  };
+
+  const handleCardClick = (id: number) => {
+    window.open(`/restaurant/${id}`, "_blank");
   };
 
   return (
@@ -32,13 +38,19 @@ const SearchBar = () => {
           Search
         </button>
       </div>
-      <ul>
+      <div className="flex-center">
+      <div className="">
+      <div className={styles["restaurantList"]}>
         {restaurants.map((restaurant) => (
-          <li className={styles["searchBarLi"]} key={restaurant.id}>
-            {restaurant.name}
-          </li>
+          <div className={styles["restaurantCard"]} key={restaurant.id}>
+            <img className={styles["restaurantUrl"]}  onClick={() => handleCardClick} src={restaurant.url} alt={restaurant.name} />
+            <h2 className={styles["restaurantName"]} >{restaurant.name}</h2>
+            <p>{restaurant.description}</p>
+            </div>
         ))}
-      </ul>
+      </div>
+      </div>
+      </div>
     </div>
   );
 };

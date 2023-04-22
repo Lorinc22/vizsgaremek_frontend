@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import styles from "./MenuItem.module.css";
 
 interface MenuItemProps {
   id: number;
@@ -35,12 +36,12 @@ const MenuItem: React.FC<MenuItemProps> = ({ id, name, description, price, url }
   };
 
   return (
-    <div className="card">
-      <div className="card-body">
-        <h5 className="card-title">{name}</h5>
-        <img src={url} alt={name} />
-        <p className="card-text">{description}</p>
-        <p className="card-text">{price} Ft</p>
+    <div className={styles["MenuItemCard"]}>
+      
+        <h5 className={styles["MenuItemTitle"]}>{name}</h5>
+        <img className={styles["MenuItemImg"]} src={url} alt={name} />
+        <p className={styles["MenuItemText"]}>{description}</p>
+        <p className={styles["MenuItemText"]}>{price} Ft</p>
         <select
           className="form-control"
           id="quantity"
@@ -48,16 +49,16 @@ const MenuItem: React.FC<MenuItemProps> = ({ id, name, description, price, url }
           onChange={handleQuantityChange}
         >
           {[1, 2, 3, 4, 5].map((number) => (
-            <option key={number} value={number}>
+            <option className={styles["MenuItemQuantity"]} key={number} value={number}>
               {number}
             </option>
           ))}
         </select>
-        <button className="btn btn-primary" onClick={handleAddToCart}>
+        <button className={styles["MenuItemButton"]} onClick={handleAddToCart}>
           Add to Cart
         </button>
       </div>
-    </div>
+    
   );
 };
 
