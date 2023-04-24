@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Kep from "../Nav/NavbarLogo.png";
 import styles from "./Nav.module.css";
 import * as data from "./links.json";
@@ -18,7 +19,7 @@ const Links: React.FC<{ links: Link[] }> = ({ links }) => {
       {links.map((link: Link) => {
         return (
           <div key={link.href} className={styles["link"]}>
-            <a href={link.href}>{link.label}</a>
+            <Link to={link.href}>{link.label}</Link>
           </div>
         );
       })}
@@ -27,14 +28,24 @@ const Links: React.FC<{ links: Link[] }> = ({ links }) => {
 };
 
 const Nav: React.FC<{}> = () => {
+  // Get the number of items in cart from localStorage
+  const cartItemsCount = localStorage.getItem("cartItemsCount");
+
   return (
     <nav className={styles.navbar}>
       <div className={styles["logo-container"]}>
-        <a href="/Homehomepage"><img className="NavbarLogo" src={Kep} /></a>
+        <Link to="/Homehomepage">
+          <img className="NavbarLogo" src={Kep} alt="Logo" />
+        </Link>
       </div>
       <div>
-        <a href="/Account"><button className="button1">Account</button></a>
-      <LogoutButton />
+        <Link to="/Account">
+          <button className="button1">Account</button>
+        </Link>
+        <LogoutButton />
+        <Link to="/CartPage">
+          <button className="button1">Cart ({cartItemsCount || 0})</button>
+        </Link>
       </div>
     </nav>
   );

@@ -10,6 +10,7 @@ import { useState } from "react";
 import Account from "./Pages/Fiok";
 import RestaurantPage from "./components/RestaurantPage/RestaurantPage";
 
+
 interface AccountData {
   email: string;
   firstName: string;
@@ -25,7 +26,7 @@ function App() {
     phoneNumber: "",
   });
 
-  return (
+    return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -34,6 +35,7 @@ function App() {
           <Route path="logout" element={<Layout />} />
           <Route path="login" element={<Login />} />
           <Route path="HomehomePage" element={<HomehomePage />} />
+          
           <Route path="/restaurant/:id" Component={RestaurantPage} />
           <Route
             path="Account"
@@ -45,6 +47,7 @@ function App() {
             }
           />
         </Route>
+        
       </Routes>
     </BrowserRouter>
   );
