@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import Kep from "../Nav/NavbarLogo.png";
 import styles from "./Nav.module.css";
 import * as data from "./links.json";
 import LogoutButton from "../LogoutBtn";
 
+let out = 0
 const linksString = JSON.stringify(data);
 const links = JSON.parse(linksString).links;
-
 type Link = {
   label: string;
   href: string;
@@ -27,9 +28,20 @@ const Links: React.FC<{ links: Link[] }> = ({ links }) => {
   );
 };
 
-const Nav: React.FC<{}> = () => {
+
+export const Nav: React.FC<{}> = () => {
   // Get the number of items in cart from localStorage
+  const [cartCount, setCartCount] = useState(0);
+
   const cartItemsCount = localStorage.getItem("cartItemsCount");
+  const cartsCountString = localStorage.getItem('cart')
+  
+  
+  if(cartsCountString){
+    const obj = JSON.parse(cartsCountString)
+    out = obj.quantity
+  }
+
 
   return (
     <nav className={styles.navbar}>
@@ -44,7 +56,7 @@ const Nav: React.FC<{}> = () => {
         </Link>
         <LogoutButton />
         <Link to="/CartPage">
-          <button className="button1">Cart ({cartItemsCount || 0})</button>
+          <button className="button1">Cart ({out})</button>
         </Link>
       </div>
     </nav>

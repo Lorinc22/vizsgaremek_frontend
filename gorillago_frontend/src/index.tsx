@@ -35,7 +35,7 @@ function App() {
           <Route path="logout" element={<Layout />} />
           <Route path="login" element={<Login />} />
           <Route path="HomehomePage" element={<HomehomePage />} />
-          
+         
           <Route path="/restaurant/:id" Component={RestaurantPage} />
           <Route
             path="Account"

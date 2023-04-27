@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./MenuItem.module.css";
+import Nav from "../Nav/Nav";
 
 interface MenuItemProps {
   id: number;
@@ -26,17 +27,34 @@ const MenuItem: React.FC<MenuItemProps> = ({ id, name, description, price, url }
 
   const handleQuantityChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setQuantity(parseInt(event.target.value));
+    
   };
 
-  const handleAddToCart = () => {
-    axios
-      .post("http://localhost:3000/cart", { id, name, price, quantity, url })
-      .then(() => {
-        alert("Item added to cart");
-      })
-      .catch((error) => {
-        console.log(error);
+  const handleAddToCart = async () => {
+      const requestBody = {
+        id: id,
+        name: name,
+        price: price,
+        quantity: quantity,
+        url: url
+      }
+      try{
+        const response = await fetch('http://localhost:3000/cart', {
+          method: 'POST',
+          headers: {
+              'Content-type': 'application/json'
+          },
+          body: JSON.stringify(requestBody)
       });
+
+      const responseBody = await response.json();
+      localStorage.setItem('cart', JSON.stringify(responseBody))
+      console.log(JSON.stringify(responseBody))
+      window.location.reload();
+      }
+      catch(error){
+        console.log(error)
+      }
   };
 
   return (

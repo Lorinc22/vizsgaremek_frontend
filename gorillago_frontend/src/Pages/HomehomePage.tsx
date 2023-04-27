@@ -53,12 +53,12 @@
     
       const restaurants = await response.json();
       const loadedRestaurants1 = restaurants.slice(0, 4);
-      const loadedRestaurants2 = restaurants.slice(4, 8);
+      const loadedRestaurants2 = restaurants.slice(4, 9);
     
       let elements1 = [];
       for (let i = 0; i < loadedRestaurants1.length; i++) {
         elements1.push(    
-            <div className="HomePageCard" style={{ backgroundColor: "#3c1945", minWidth: '300px', maxWidth:'300px'}}>
+            <div className="HomePageCard" style={{ backgroundColor: "#3c1945", minWidth: '500px', maxWidth:'500px'}}>
               <img className="pizzaKingImg" src={loadedRestaurants1[i].url} key={i} onClick={() => this.handleCardClick(this.state.loadedRestaurants1[i].id)}/>
               <h6 id="restaurantName">{loadedRestaurants1[i].name}</h6>
             </div>

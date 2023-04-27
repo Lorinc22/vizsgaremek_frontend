@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import styles from "./RestaurantPage.module.css";
 import axios from "axios";
 import MenuItem from "../MenuItem/MenuItem";
+import Nav from "../Nav/Nav";
 
 interface RestaurantPage {
   id: number;
@@ -46,6 +47,7 @@ function RestaurantPage() {
   
   return (
     <div>
+      <Nav/>
       <h1 className={styles["Pageh1"]}>{restaurant?.name}</h1> 
       <img className={styles["Pageurl"]} src={restaurant?.url} alt={restaurant?.name} /> 
 
