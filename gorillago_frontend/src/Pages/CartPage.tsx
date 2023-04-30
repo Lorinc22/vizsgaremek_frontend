@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Cart from "../components/Cart/Cart";
 import Nav from "../components/Nav/Nav";
+import { Link } from "react-router-dom";
 
 interface MenuItem {
   id: number;
@@ -44,8 +45,11 @@ class CartPage extends Component<Props, State> {
     return (
       <div>
         <Nav/>
-        <h1>Cart Page</h1>
-        <Cart cartItems={cartItems} onRemoveFromCart={this.removeFromCart} />
+        
+        <Cart/>
+        <Link to="/DeliveryInformations">
+          <button className="button1">Tovább</button>
+        </Link>
       </div>
     );
   }

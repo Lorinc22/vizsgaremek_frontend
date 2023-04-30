@@ -1,73 +1,68 @@
-import React from 'react';
-import { createContext, useContext, useState } from 'react';
+import React, { createContext, useReducer } from "react";
 
-interface CartItem {
-  id: string;
-  name: string;
-  price: number;
-  image: string;
+interface State {
+  cartItems: CartItem[];
 }
 
-interface CartItemWithQuantity {
-  item: CartItem;
+interface Action {
+  type: string;
+  payload?: any;
+}
+
+interface MenuItem {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+}
+
+interface CartItem {
+  menuItem: MenuItem;
   quantity: number;
 }
 
-interface CartContextType {
-  cartItems: CartItemWithQuantity[];
-  addItem: (item: CartItem) => void;
-  removeItem: (itemId: string) => void;
+interface CartContextProps {
+  state: State;
+  dispatch: React.Dispatch<Action>;
 }
 
-const CartContext = createContext<CartContextType>({
-  cartItems: [],
-  addItem: () => { },
-  removeItem: () => { },
+export const CartContext = createContext<CartContextProps>({
+  state: { cartItems: [] },
+  dispatch: () => null,
 });
 
-export const useCart = () => {
-  return useContext(CartContext);
-}
+const cartReducer = (state: State, action: Action) => {
+  switch (action.type) {
+    case "ADD_TO_CART":
+      const { menuItem, quantity } = action.payload;
+      const itemIndex = state.cartItems.findIndex(
+        (item) => item.menuItem.id === menuItem.id
+      );
+      if (itemIndex !== -1) {
+        const updatedCartItems = [...state.cartItems];
+        updatedCartItems[itemIndex].quantity += quantity;
+        return { ...state, cartItems: updatedCartItems };
+      } else {
+        const newCartItem = { menuItem, quantity };
+        return { ...state, cartItems: [...state.cartItems, newCartItem] };
+      }
+    case "REMOVE_FROM_CART":
+      const id = action.payload.id;
+      const filteredCartItems = state.cartItems.filter(
+        (item) => item.menuItem.id !== id
+      );
+      return { ...state, cartItems: filteredCartItems };
+    default:
+      return state;
+  }
+};
 
-interface Props {
-  home: React.ReactNode;
-  register: React.ReactNode;
-  logout: React.ReactNode;
-  login: React.ReactNode;
-  HomehomePage: React.ReactNode;
-  account: React.ReactNode;
-}
-
-const CartProvider: React.FC<Props> = ({ home, register, logout, login, HomehomePage, account  }) => {
-  const [cartItems, setCartItems] = useState<CartItemWithQuantity[]>([]);
-
-  const addItem = (item: CartItem) => {
-    const itemExists = cartItems.find(cartItem => cartItem.item.id === item.id);
-    if (itemExists) {
-      setCartItems(prevCartItems => prevCartItems.map(cartItem => {
-        if (cartItem.item.id === item.id) {
-          return { ...cartItem, quantity: cartItem.quantity + 1 };
-        } else {
-          return cartItem;
-        }
-      }));
-    } else {
-      setCartItems(prevCartItems => [...prevCartItems, { item: item, quantity: 1 }]);
-    }
-  };
-
-  const removeItem = (itemId: string) => {
-    setCartItems(prevCartItems => prevCartItems.filter(cartItem => cartItem.item.id !== itemId));
-  };
+const CartProvider: React.FC = ({ }) => {
+  const [state, dispatch] = useReducer(cartReducer, { cartItems: [] });
 
   return (
-    <CartContext.Provider value={{ cartItems, addItem, removeItem }}>
-      {home}
-      {register}
-      {logout}
-      {login}
-      {HomehomePage}
-      {account}
+    <CartContext.Provider value={{ state, dispatch }}>
+      {}
     </CartContext.Provider>
   );
 };

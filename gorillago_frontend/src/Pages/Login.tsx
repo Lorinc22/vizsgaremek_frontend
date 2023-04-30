@@ -33,6 +33,7 @@ function Login() {
       const responseBody = await response.json()
       const userdata : any = jwt_decode(responseBody.token)
       localStorage.setItem('userid', userdata['id'])
+      localStorage.setItem('token', responseBody.token)
 
       navigate("/HomehomePage");
     } catch (error) {
@@ -62,11 +63,11 @@ function Login() {
           type="password"
           className="form__input"
           id="name"
-          placeholder="Password"
+          placeholder="Jelszó"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <label className="form__label"> Password</label>
+        <label className="form__label"> Jelszó</label>
       </div>
       <div className="div-button">
         <button className="button1" onClick={handleLogin}>

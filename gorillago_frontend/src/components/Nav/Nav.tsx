@@ -3,12 +3,10 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import Kep from "../Nav/NavbarLogo.png";
 import styles from "./Nav.module.css";
-import * as data from "./links.json";
 import LogoutButton from "../LogoutBtn";
 
 let out = 0
-const linksString = JSON.stringify(data);
-const links = JSON.parse(linksString).links;
+
 type Link = {
   label: string;
   href: string;
@@ -33,15 +31,24 @@ export const Nav: React.FC<{}> = () => {
   // Get the number of items in cart from localStorage
   const [cartCount, setCartCount] = useState(0);
 
-  const cartItemsCount = localStorage.getItem("cartItemsCount");
-  const cartsCountString = localStorage.getItem('cart')
+  let cart = JSON.parse(localStorage.getItem('cart')!)
   
-  
-  if(cartsCountString){
-    const obj = JSON.parse(cartsCountString)
-    out = obj.quantity
+  useEffect(()=>{
+    getCartCount()
+  })
+  const getCartCount = () => {
+    if(!cart){
+      setCartCount(0)
+      return
+    }
+    let amount = 0;
+    for(let i = 0; i < cart.length; i++){
+      amount += cart[i].quantity
+    }
+    setCartCount(amount)
+    
   }
-
+  
 
   return (
     <nav className={styles.navbar}>
@@ -52,11 +59,11 @@ export const Nav: React.FC<{}> = () => {
       </div>
       <div>
         <Link to="/Account">
-          <button className="button1">Account</button>
+          <button className="button1">Fiók</button>
         </Link>
         <LogoutButton />
         <Link to="/CartPage">
-          <button className="button1">Cart ({out})</button>
+          <button className="button1">Kosár ({cartCount})</button>
         </Link>
       </div>
     </nav>

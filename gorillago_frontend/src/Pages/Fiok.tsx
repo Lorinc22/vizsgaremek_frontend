@@ -136,13 +136,13 @@ const Account: React.FunctionComponent<AccountProps> = (props) => {
       <div className="container mt-5">
         <div className="row justify-content-center">
           <div className="col-md-6">
-            <div className="card" style={{ backgroundColor: "#3c1945" }}>
+            <div className="card" style={{ backgroundColor: "#3c1945" , borderRadius: "20px" }}>
               <div
                 className="card-body "
                 style={{ backgroundColor: "#3c1945" }}
               >
                 <h4 className="card-title mb-4" style={{ textAlign: "center" }}>
-                  Account Information
+                  Fiók Adatai
                 </h4>
                 <form onSubmit={handleAccountSubmit}>
                   <div className="form-group">
@@ -156,7 +156,7 @@ const Account: React.FunctionComponent<AccountProps> = (props) => {
                     />
                   </div>
                   <div className="form-group">
-                    <label style={{ color: "white" }}>First Name</label>
+                    <label style={{ color: "white" }}>Vezetéknév</label>
                     <input
                       type="text"
                       className="form__inputAccount"
@@ -165,7 +165,7 @@ const Account: React.FunctionComponent<AccountProps> = (props) => {
                     />
                   </div>
                   <div className="form-group">
-                    <label style={{ color: "white" }}>Last Name</label>
+                    <label style={{ color: "white" }}>Keresztnév</label>
                     <input
                       type="text"
                       className="form__inputAccount"
@@ -174,7 +174,7 @@ const Account: React.FunctionComponent<AccountProps> = (props) => {
                     />
                   </div>
                   <div className="form-group">
-                    <label style={{ color: "white" }}>Phone Number</label>
+                    <label style={{ color: "white" }}>Telefonszám</label>
                     <input
                       type="tel"
                       className="form__inputAccount"
@@ -182,8 +182,8 @@ const Account: React.FunctionComponent<AccountProps> = (props) => {
                       onChange={handlePhoneNumberChange}
                     />
                   </div>
-                  <button type="submit" className="button-78">
-                    Save
+                  <button type="submit" className="AccountButtons">
+                    Mentés
                   </button>
                 </form>
               </div>
@@ -192,14 +192,14 @@ const Account: React.FunctionComponent<AccountProps> = (props) => {
         </div>
         <div className="row justify-content-center mt-5">
           <div className="col-md-6">
-            <div className="card" style={{ backgroundColor: "#3c1945" }}>
+            <div className="card" style={{ backgroundColor: "#3c1945" ,  borderRadius: "20px" }}>
               <div className="card-body" style={{ backgroundColor: "#3c1945" }}>
                 <h4 className="card-title mb-4" style={{ textAlign: "center" }}>
-                  Change Password
+                  Jelszó Változtatás
                 </h4>
                 <form onSubmit={handlePasswordSubmit}>
                   <div className="form-group">
-                    <label style={{ color: "white" }}>Old Password</label>
+                    <label style={{ color: "white" }}>Régi Jelszó</label>
                     <input
                       type="password"
                       className="form__inputAccount"
@@ -208,7 +208,7 @@ const Account: React.FunctionComponent<AccountProps> = (props) => {
                     />
                   </div>
                   <div className="form-group">
-                    <label style={{ color: "white" }}>New Password</label>
+                    <label style={{ color: "white" }}>Új Jelszó</label>
                     <input
                       type="password"
                       className="form__inputAccount"
@@ -216,8 +216,8 @@ const Account: React.FunctionComponent<AccountProps> = (props) => {
                       onChange={handleNewPasswordChange}
                     />
                   </div>
-                  <button type="submit" className="button-78">
-                    Change Password
+                  <button type="submit" className="AccountButtons">
+                    Megváltoztatás
                   </button>
                 </form>
               </div>

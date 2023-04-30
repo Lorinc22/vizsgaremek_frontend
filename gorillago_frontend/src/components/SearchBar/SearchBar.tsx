@@ -30,12 +30,12 @@ const SearchBar = () => {
         <input
           className={styles["form__input"]}
           type="text"
-          placeholder="Search restaurants"
+          placeholder="Éttermek Keresése"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
         <button className={styles["searchBarButton"]} onClick={handleSearch}>
-          Search
+          Keresés
         </button>
       </div>
       <div className="flex-center">

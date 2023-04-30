@@ -4,7 +4,7 @@ import "../App.css";
 
 function LogoutButton() {
   return (
-    <button className='button1' onClick={logout}>Logout</button>
+    <button className='button1' onClick={logout}>Kijelentkezés</button>
   );
 }
 

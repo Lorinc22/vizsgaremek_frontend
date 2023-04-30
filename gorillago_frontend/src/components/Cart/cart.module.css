@@ -1,0 +1,133 @@
+.MenuItemCard {
+    height: 250px;
+    width: 500px;
+    padding: 10px;
+    background-color: #3c1945;
+    border: 2px solid white;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+  }
+  
+  .MenuItemTitle {
+    text-align: center;
+    color: white;
+  }
+  
+  .MenuItemText {
+    color: white;
+    max-width: 100%;
+  }
+  
+  .MenuItemImg {
+    width: 120px;
+    height: 120px;
+    margin-right: 1rem;
+    border:1px solid white;
+    border-radius: 15px;
+  }
+  
+  .MenuItemQuantity {
+    color: white;
+  }
+  
+  .MenuItemQuantityButton {
+    color: white;
+    background-color: transparent;
+  }
+  
+  .MenuItemContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  
+  .MenuItemTextContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .MenuItemQuantityButton {
+    background-color: transparent;
+    border: none;
+    padding: 0.5rem;
+    margin: 0.25rem;
+    cursor: pointer;
+  }
+  
+  .MenuItemQuantity {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0 0.5rem;
+  }
+  
+  .MenuItemButton {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 15px;
+    cursor: pointer;
+    border-radius: 30px;
+  }
+  
+  .MenuItemButton:hover {
+    background-color: white;
+    color: #3c1945;
+  }
+  
+  .MenuItemQuantityContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  
+  .MenuItemContainer2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 20% 60% 20%;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    height: 250px;
+    width: 500px;;
+    background-color: #3c1945;
+    border-radius: 30px;
+    border: 2px solid white
+  }
+  
+  .MenuItemContainer2 div, .MenuItemContainer2 button {
+    margin: 0;
+  }
+  .MenuItemContent2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+  }
+  
+  .MenuItemContent2 img{
+    margin: auto !important;
+  }
+  
+  .MenuItemContent2 p{
+    display: flex;
+    align-self: center;
+    margin: auto !important;
+  }
+  .card {
+    background-color: red;
+    width: 100%;
+    border-radius: 30px;
+    flex: 4;
+    transition: 0.3s;
+    margin: 0 10px;
+    border: 1px solid white !important;
+    border-radius: 20px;
+  }
+  
