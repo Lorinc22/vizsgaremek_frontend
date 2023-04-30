@@ -3,7 +3,7 @@ import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import withRouter from "../components/withRouter";
 
-import { Toaster } from "react-hot-toast";
+import { Toaster, toast } from "react-hot-toast";
 import { NavigateFunction } from "react-router-dom";
 
 interface State {
@@ -29,17 +29,30 @@ class Register extends Component<Props, State> {
 
   handleRegister = async () => {
     const { email, password, rePassword } = this.state;
-    if (email.trim() === "" || password !== rePassword) {
-      // this.setState()- tel hibaüzenet megjelenítése
+  
+    if (!email.trim()) {
+      toast.error("Az e-mail kitöltése kötelező!");
       return;
     }
-
+  
+    if (password.length < 8) {
+      toast.error(
+        "A jelszónak 8 vagy több karakter hosszúnak kell lennie!"
+      );
+      return;
+    }
+  
+    if (password !== rePassword) {
+      toast.error("A jelszavak nem egyeznek!");
+      return;
+    }
+  
     const adat = {
       email: email,
       password: password,
       rePassword: rePassword,
     };
-
+  
     let response = await fetch("http://localhost:3000/register", {
       method: "POST",
       headers: {
@@ -48,16 +61,34 @@ class Register extends Component<Props, State> {
       body: JSON.stringify(adat),
     });
 
+    if (response.status === 400) {
+      toast.error("A megadott email cím már használatban van!");
+      return;
+    }
+  
     this.setState({
       email: "",
       password: "",
       rePassword: "",
     });
-
+  
+    toast.success("Sikeres regisztráció!", {
+      duration: 5000,
+      position: "top-center",
+      style: {
+        height: "130px",
+        background: "#3c1945",
+        color: "white",
+        fontSize: "14px",
+        width: "300px",
+        textAlign: "center",
+        borderRadius: "20px",
+      },
+    });
+  
     console.log(adat);
     this.props.navigate("/login");
   };
-
   render() {
     return (
       <div id="input" className="container">
@@ -99,7 +130,21 @@ class Register extends Component<Props, State> {
           <button className="button1" onClick={this.handleRegister}>
             Regisztráció
           </button>
-          <Toaster />
+          <Toaster
+            position="top-center"
+            toastOptions={{
+              style: {
+                height:"120px",
+                background: "#3c1945",
+                color: "white",
+                fontSize: "17px",
+                width: "300px",
+                textAlign: "center",
+                borderRadius:"20px",
+                
+              },
+            }}
+          />
         </div>
       </div>
     );

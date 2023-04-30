@@ -1,5 +1,6 @@
 import React, { Component, useState } from "react";
 import jwt_decode from 'jwt-decode'
+
 import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Kep from "../images/gorillagoicon.png";
@@ -48,18 +49,19 @@ function DeliveryInformation(){
       }
 
 
-       const response = await fetch(`http://localhost:3000/order/`, {
-         method: 'POST',
-         headers: {
-           'Content-type': 'application/json'
-         },
-         body: JSON.stringify(requestBody)
-       })
-       const responseBody = await response.json()
-       console.log(responseBody)
-
-  }
-
+      const response = await fetch(`http://localhost:3000/order/`, {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(requestBody)
+      });
+      const responseBody = await response.json();
+      console.log(responseBody);
+      if (response.status === 200) {
+        alert("Sikeres megrendelés!");
+      }
+    }
   return (
     <div >
         <Nav/>
@@ -107,7 +109,7 @@ function DeliveryInformation(){
                     />
                   </div>
                   <button className="AccountButtons" onClick={submitDeliveryInforation}>
-                    Rendelés 
+                    Megrendelés 
                   </button>
               </div>
             </div>

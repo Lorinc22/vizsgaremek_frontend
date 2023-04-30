@@ -51,7 +51,7 @@ h3 {
 }
 .NavbarLogo {
   width: 10%;
-  margin-top: 1%;
+  margin-top: 1% ;
 }
 
 .gorillagoicon {
@@ -336,4 +336,11 @@ input:-webkit-autofill {
   border: none;
   width: 100%;
   max-width: 200px;
+}
+
+.react-hot-toast-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9999;
 }
