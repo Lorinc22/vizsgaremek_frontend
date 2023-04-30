@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Cart from "../components/Cart/Cart";
 import Nav from "../components/Nav/Nav";
 import { Link } from "react-router-dom";
+import Kep2 from "../images/gorillagoicon.png";
+import "../App.css";
 
 interface MenuItem {
   id: number;
@@ -45,11 +47,10 @@ class CartPage extends Component<Props, State> {
     return (
       <div>
         <Nav/>
-        
         <Cart/>
-        <Link to="/DeliveryInformations">
-          <button className="button1">Tovább</button>
-        </Link>
+        <footer className="footer">
+              <img className="gorillagoiconfooter" src={Kep2} />
+            </footer>
       </div>
     );
   }

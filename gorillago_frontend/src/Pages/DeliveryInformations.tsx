@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Kep from "../images/gorillagoicon.png";
 import { Link } from "react-router-dom";
 import Nav from "../components/Nav/Nav";
+import Kep2 from "../images/gorillagoicon.png";
 
 
 function DeliveryInformation(){
@@ -112,7 +113,11 @@ function DeliveryInformation(){
             </div>
           </div>
         </div>
+        
     </div>
+    <footer className="footer">
+              <img className="gorillagoiconfooter" src={Kep2} />
+            </footer>
     </div>
   );
 };
