@@ -57,13 +57,11 @@ const cartReducer = (state: State, action: Action) => {
   }
 };
 
-const CartProvider: React.FC = ({ }) => {
+const CartProvider: React.FC = ({}) => {
   const [state, dispatch] = useReducer(cartReducer, { cartItems: [] });
 
   return (
-    <CartContext.Provider value={{ state, dispatch }}>
-      {}
-    </CartContext.Provider>
+    <CartContext.Provider value={{ state, dispatch }}>{}</CartContext.Provider>
   );
 };
 

@@ -5,7 +5,7 @@ import Kep from "../Nav/NavbarLogo.png";
 import styles from "./Nav.module.css";
 import LogoutButton from "../LogoutBtn";
 
-let out = 0
+let out = 0;
 
 type Link = {
   label: string;
@@ -26,29 +26,26 @@ const Links: React.FC<{ links: Link[] }> = ({ links }) => {
   );
 };
 
-
 export const Nav: React.FC<{}> = () => {
   // Get the number of items in cart from localStorage
   const [cartCount, setCartCount] = useState(0);
 
-  let cart = JSON.parse(localStorage.getItem('cart')!)
-  
-  useEffect(()=>{
-    getCartCount()
-  })
+  let cart = JSON.parse(localStorage.getItem("cart")!);
+
+  useEffect(() => {
+    getCartCount();
+  });
   const getCartCount = () => {
-    if(!cart){
-      setCartCount(0)
-      return
+    if (!cart) {
+      setCartCount(0);
+      return;
     }
     let amount = 0;
-    for(let i = 0; i < cart.length; i++){
-      amount += cart[i].quantity
+    for (let i = 0; i < cart.length; i++) {
+      amount += cart[i].quantity;
     }
-    setCartCount(amount)
-    
-  }
-  
+    setCartCount(amount);
+  };
 
   return (
     <nav className={styles.navbar}>

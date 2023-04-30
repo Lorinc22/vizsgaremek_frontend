@@ -1,5 +1,4 @@
 export function logout() {
-    localStorage.removeItem('userToken');
-    window.location.href = '/login';
-  }
-  
+  localStorage.removeItem("userToken");
+  window.location.href = "/login";
+}

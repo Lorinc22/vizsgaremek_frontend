@@ -46,11 +46,11 @@ class CartPage extends Component<Props, State> {
 
     return (
       <div>
-        <Nav/>
-        <Cart/>
+        <Nav />
+        <Cart />
         <footer className="footer">
-              <img className="gorillagoiconfooter" src={Kep2} />
-            </footer>
+          <img className="gorillagoiconfooter" src={Kep2} />
+        </footer>
       </div>
     );
   }

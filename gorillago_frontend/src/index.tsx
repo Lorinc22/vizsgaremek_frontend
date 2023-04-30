@@ -9,9 +9,8 @@ import Register from "./Pages/Register";
 import { useState } from "react";
 import Account from "./Pages/Fiok";
 import RestaurantPage from "./components/RestaurantPage/RestaurantPage";
-import CartPage from './Pages/CartPage'
+import CartPage from "./Pages/CartPage";
 import DeliveryInformations from "./Pages/DeliveryInformations";
-
 
 interface AccountData {
   email: string;
@@ -28,9 +27,8 @@ function App() {
     phoneNumber: "",
   });
 
-    return (
+  return (
     <BrowserRouter>
-    
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
@@ -39,7 +37,10 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="HomehomePage" element={<HomehomePage />} />
           <Route path="CartPage" element={<CartPage />} />
-          <Route path="DeliveryInformations" element={<DeliveryInformations />} />
+          <Route
+            path="DeliveryInformations"
+            element={<DeliveryInformations />}
+          />
           <Route path="/restaurant/:id" Component={RestaurantPage} />
           <Route
             path="Account"
@@ -51,7 +52,6 @@ function App() {
             }
           />
         </Route>
-        
       </Routes>
     </BrowserRouter>
   );

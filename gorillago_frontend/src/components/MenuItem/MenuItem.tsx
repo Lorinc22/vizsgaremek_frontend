@@ -10,7 +10,13 @@ interface MenuItemProps {
   url: string;
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({ id, name, description, price, url }) => {
+const MenuItem: React.FC<MenuItemProps> = ({
+  id,
+  name,
+  description,
+  price,
+  url,
+}) => {
   const [quantity, setQuantity] = useState(1);
   const [, setUrl] = useState("");
 
@@ -48,25 +54,23 @@ const MenuItem: React.FC<MenuItemProps> = ({ id, name, description, price, url }
 
       const responseBody = await response.json();
 
-
-      const newCart = []
-      if(!localStorage.getItem('cart')){
-        newCart.push(requestBody)
-        console.log("First item in cart: "+ JSON.stringify(newCart))
-        localStorage.setItem('cart', JSON.stringify(newCart))
-      }
-      else{
-        const existingCart = JSON.parse(localStorage.getItem('cart')!)
-        console.log("existing cart length: " + existingCart.length)
-        for(let i = 0; i < existingCart.length; i++){
-          console.log(existingCart[i])
-          newCart.push(existingCart[i])
+      const newCart = [];
+      if (!localStorage.getItem("cart")) {
+        newCart.push(requestBody);
+        console.log("First item in cart: " + JSON.stringify(newCart));
+        localStorage.setItem("cart", JSON.stringify(newCart));
+      } else {
+        const existingCart = JSON.parse(localStorage.getItem("cart")!);
+        console.log("existing cart length: " + existingCart.length);
+        for (let i = 0; i < existingCart.length; i++) {
+          console.log(existingCart[i]);
+          newCart.push(existingCart[i]);
         }
-        newCart.push(requestBody)
-        localStorage.setItem('cart', JSON.stringify(newCart))
-        console.log(localStorage.getItem('cart'))
+        newCart.push(requestBody);
+        localStorage.setItem("cart", JSON.stringify(newCart));
+        console.log(localStorage.getItem("cart"));
 
-        window.location.reload()
+        window.location.reload();
       }
     } catch (error) {
       console.log(error);
@@ -76,20 +80,44 @@ const MenuItem: React.FC<MenuItemProps> = ({ id, name, description, price, url }
   return (
     <div>
       <div className={styles["MenuItemContainer2"]}>
-        <div style={{ display: 'flex', alignContent: 'center', alignItems: 'center', justifyContent: 'center' }}>
-          <h5 className={styles["MenuItemTitle"]}>{name} {id}</h5>
+        <div
+          style={{
+            display: "flex",
+            alignContent: "center",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <h5 className={styles["MenuItemTitle"]}>
+            {name} {id}
+          </h5>
         </div>
         <div className={styles["MenuItemContent2"]}>
           <img className={styles["MenuItemImg"]} src={url} alt={name} />
-          <div style={{ display: 'flex', alignContent: 'center', alignItems: 'center', justifyContent: 'center', overflowX: 'hidden', paddingRight: '5px' }}>
+          <div
+            style={{
+              display: "flex",
+              alignContent: "center",
+              alignItems: "center",
+              justifyContent: "center",
+              overflowX: "hidden",
+              paddingRight: "5px",
+            }}
+          >
             <p className={styles["MenuItemText"]}>{description} </p>
           </div>
           <div className={styles["MenuItemQuantityContainer"]}>
-            <button className={styles["MenuItemQuantityButton"]} onClick={handleQuantityDecrement}>
+            <button
+              className={styles["MenuItemQuantityButton"]}
+              onClick={handleQuantityDecrement}
+            >
               -
             </button>
             <span className={styles["MenuItemQuantity"]}>{quantity}</span>
-            <button className={styles["MenuItemQuantityButton"]} onClick={handleQuantityIncrement}>
+            <button
+              className={styles["MenuItemQuantityButton"]}
+              onClick={handleQuantityIncrement}
+            >
               +
             </button>
             <p className={styles["MenuItemText"]}>{price} Ft</p>

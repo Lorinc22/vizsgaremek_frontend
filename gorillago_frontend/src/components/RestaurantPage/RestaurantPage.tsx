@@ -16,7 +16,7 @@ interface MenuItem {
   name: string;
   description: string;
   price: number;
-  url:string;
+  url: string;
 }
 
 function RestaurantPage() {
@@ -27,13 +27,16 @@ function RestaurantPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/restaurant/${id}`);
+        const response = await axios.get(
+          `http://localhost:3000/restaurant/${id}`
+        );
         setRestaurant(response.data);
-        
-        const menus = await axios.get(`http://localhost:3000/restaurants/${id}/menus`);
-        console.log(menus.data)
+
+        const menus = await axios.get(
+          `http://localhost:3000/restaurants/${id}/menus`
+        );
+        console.log(menus.data);
         setMenu(menus.data || []);
-        
       } catch (error) {
         console.log(error);
       }
@@ -43,32 +46,42 @@ function RestaurantPage() {
   }, [id]);
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/restaurants/${id}/menus`).then((response) => {
-      setMenu(response.data);
-      console.log("menu list: " + menu)
-    });
+    axios
+      .get(`http://localhost:3000/restaurants/${id}/menus`)
+      .then((response) => {
+        setMenu(response.data);
+        console.log("menu list: " + menu);
+      });
   }, [id]);
-  
-  
+
   return (
     <div>
-      <Nav/>
-      <h1 className={styles["Pageh1"]}>{restaurant?.name}</h1> 
-      <img className={styles["Pageurl"]} src={restaurant?.url} alt={restaurant?.name} style={{objectFit: 'cover'}}/> 
-
-     <div className="row" style={{margin: '0'}}>
-  {menu.map((menu) => (
-    <div key={menu.id} className="col-sm-12 col-md-6 col-lg-4" style={{margin: '0'}}>
-      <MenuItem
-        id={menu.id}
-        name={menu.name}
-        description={menu.description}
-        price={menu.price}
-        url={menu.url}
+      <Nav />
+      <h1 className={styles["Pageh1"]}>{restaurant?.name}</h1>
+      <img
+        className={styles["Pageurl"]}
+        src={restaurant?.url}
+        alt={restaurant?.name}
+        style={{ objectFit: "cover" }}
       />
-    </div>
-  ))}
-    </div>
+
+      <div className="row" style={{ margin: "0" }}>
+        {menu.map((menu) => (
+          <div
+            key={menu.id}
+            className="col-sm-12 col-md-6 col-lg-4"
+            style={{ margin: "0" }}
+          >
+            <MenuItem
+              id={menu.id}
+              name={menu.name}
+              description={menu.description}
+              price={menu.price}
+              url={menu.url}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

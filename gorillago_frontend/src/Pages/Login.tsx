@@ -4,7 +4,7 @@ import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import withRouter from "../components/withRouter";
 import { useNavigate } from "react-router-dom";
-import jwt_decode from 'jwt-decode'
+import jwt_decode from "jwt-decode";
 
 export interface LoginSite {}
 
@@ -23,17 +23,17 @@ function Login() {
     try {
       const user: User = { email, password };
       // const response = await axios.post("http://localhost:3000/login", user);
-      const response = await fetch('http://localhost:3000/login', {
-        method: 'POST',
+      const response = await fetch("http://localhost:3000/login", {
+        method: "POST",
         headers: {
-          'Content-type': 'application/json'
+          "Content-type": "application/json",
         },
-        body: JSON.stringify(user)
-      })
-      const responseBody = await response.json()
-      const userdata : any = jwt_decode(responseBody.token)
-      localStorage.setItem('userid', userdata['id'])
-      localStorage.setItem('token', responseBody.token)
+        body: JSON.stringify(user),
+      });
+      const responseBody = await response.json();
+      const userdata: any = jwt_decode(responseBody.token);
+      localStorage.setItem("userid", userdata["id"]);
+      localStorage.setItem("token", responseBody.token);
 
       navigate("/HomehomePage");
     } catch (error) {

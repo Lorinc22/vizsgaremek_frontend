@@ -29,30 +29,28 @@ class Register extends Component<Props, State> {
 
   handleRegister = async () => {
     const { email, password, rePassword } = this.state;
-  
+
     if (!email.trim()) {
       toast.error("Az e-mail kitöltése kötelező!");
       return;
     }
-  
+
     if (password.length < 8) {
-      toast.error(
-        "A jelszónak 8 vagy több karakter hosszúnak kell lennie!"
-      );
+      toast.error("A jelszónak 8 vagy több karakter hosszúnak kell lennie!");
       return;
     }
-  
+
     if (password !== rePassword) {
       toast.error("A jelszavak nem egyeznek!");
       return;
     }
-  
+
     const adat = {
       email: email,
       password: password,
       rePassword: rePassword,
     };
-  
+
     let response = await fetch("http://localhost:3000/register", {
       method: "POST",
       headers: {
@@ -65,13 +63,13 @@ class Register extends Component<Props, State> {
       toast.error("A megadott email cím már használatban van!");
       return;
     }
-  
+
     this.setState({
       email: "",
       password: "",
       rePassword: "",
     });
-  
+
     toast.success("Sikeres regisztráció!", {
       duration: 5000,
       position: "top-center",
@@ -85,7 +83,7 @@ class Register extends Component<Props, State> {
         borderRadius: "20px",
       },
     });
-  
+
     console.log(adat);
     this.props.navigate("/login");
   };
@@ -134,14 +132,13 @@ class Register extends Component<Props, State> {
             position="top-center"
             toastOptions={{
               style: {
-                height:"120px",
+                height: "120px",
                 background: "#3c1945",
                 color: "white",
                 fontSize: "17px",
                 width: "300px",
                 textAlign: "center",
-                borderRadius:"20px",
-                
+                borderRadius: "20px",
               },
             }}
           />
