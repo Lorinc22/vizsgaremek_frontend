@@ -14,6 +14,7 @@ function DeliveryInformation(){
   const [street, setStreet] = useState("");
   const [houseNumber, setHouseNumber] = useState("");
   const [postalCode, setPostalCode] = useState<number | null>(null);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
 
 
@@ -37,6 +38,7 @@ function DeliveryInformation(){
 
       const token = localStorage.getItem('token')
       const userdata : any = jwt_decode(token!)
+      
 
       const requestBody = {
         city: city,
@@ -50,18 +52,17 @@ function DeliveryInformation(){
 
 
       const response = await fetch(`http://localhost:3000/order/`, {
-        method: 'POST',
-        headers: {
-          'Content-type': 'application/json'
-        },
-        body: JSON.stringify(requestBody)
-      });
-      const responseBody = await response.json();
-      console.log(responseBody);
-      if (response.status === 200) {
-        alert("Sikeres megrendelés!");
-      }
-    }
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json'
+    },
+    body: JSON.stringify(requestBody)
+  });
+
+  if (response.ok) {
+    alert('Sikeres rendelés!');
+  }
+};
   return (
     <div >
         <Nav/>

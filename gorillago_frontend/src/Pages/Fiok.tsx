@@ -41,7 +41,7 @@ const changePassword = async (
     });
 
     const result = await response.json();
-    // console.log('response: ' + JSON.stringify(response))
+    
 
     console.log('result:' + result)
     return true
@@ -68,7 +68,7 @@ const Account: React.FunctionComponent<AccountProps> = (props) => {
   );
   const [oldPassword, setOldPassword] = useState<string>("");
   const [newPassword, setNewPassword] = useState<string>("");
-
+    
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };

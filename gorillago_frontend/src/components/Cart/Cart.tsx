@@ -32,7 +32,7 @@ function Cart() {
 
   function getCartItems() {
     if (cart.length === 0) {
-      return <h1>A kosár üres</h1>;
+      return <h1 className={styles["EmptyCartTitle"]}>A kosár üres</h1>;
     }
 
     return cart.map((item, index) => (
