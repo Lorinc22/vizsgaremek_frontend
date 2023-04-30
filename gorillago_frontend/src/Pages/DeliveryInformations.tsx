@@ -14,7 +14,6 @@ function DeliveryInformation(){
   const [street, setStreet] = useState("");
   const [houseNumber, setHouseNumber] = useState("");
   const [postalCode, setPostalCode] = useState<number | null>(null);
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
 
 

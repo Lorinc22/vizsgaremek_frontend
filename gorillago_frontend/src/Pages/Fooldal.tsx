@@ -8,7 +8,7 @@ export interface HomeSite {}
 
 const Home: React.FunctionComponent<HomeSite> = (props) => {
   return (
-    <div id="input" className="container">
+    <div id="input" className="container input">
       <img className="gorillagoicon" src={Kep} />
       <div className="div-button">
         <Link
